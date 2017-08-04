@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Chat project</string>
+    <string name="app_name_title"> Chat</string>
+    <string name="menu_write"> write</string>
+    <string name="kurse">Kurse</string>
+    <string name="community">Community</string>
+    <string name="profile">Profile</string>
+    <string name="help">Help</string>
+    <string name="block">Block</string>
+    <string name="go_back_to_main">GO BACK TO MAIN</string>
+</resources>

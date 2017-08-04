@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        style="?android:attr/progressBarStyle"
+        android:visibility="invisible"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        tools:context="test.chat.ui.activity.PersonalChatActivity">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rView"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@android:color/white"
+                android:paddingBottom="10dp">
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/etMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Message"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1"
+                    android:paddingEnd="3dp"
+                    android:paddingStart="5dp"
+                    android:textColor="@android:color/primary_text_light"
+                    android:textSize="14sp">
+                    <!--android:drawableEnd="@drawable/camera"-->
+                </android.support.v7.widget.AppCompatEditText>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/addBtn"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:src="@drawable/camera" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

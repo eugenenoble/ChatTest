@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="8dp"
+    android:background="@android:color/white">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/holo_red_light"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Delete"
+        android:textColor="@android:color/white" />
+
+    <LinearLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:minHeight="72dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/profile_image"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:padding="5dp"
+            tools:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                tools:text="Jeka Matiash"
+                android:textColor="@color/colorTextPrimary" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:textSize="14sp"
+                tools:text="Когда будет задание?" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="top"
+                tools:text="23:14"
+                android:textColor="@color/terxt_color_disabled"
+                android:textSize="12sp" />
+
+            <test.chat.ui.view.BadgeView
+                android:id="@+id/chat_count"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:padding="6dp"
+            android:src="@drawable/arrow" />
+
+    </LinearLayout>
+</FrameLayout>
