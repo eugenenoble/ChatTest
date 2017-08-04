@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     protected Toolbar toolbar;
-    @BindView(R.id.chatTabs)
+    @BindView(R.id.chat_tabs)
     protected TabLayout tabLayout;
-    @BindView(R.id.chatViewPager)
+    @BindView(R.id.chat_view_pager)
     protected ViewPager viewPager;
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-        //viewPager.setCurrentItem(0);
         getResponce();
         progressBar.setVisibility(View.INVISIBLE);
 

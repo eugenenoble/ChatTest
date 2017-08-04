@@ -44,7 +44,7 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tvName"
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="16sp"
@@ -52,7 +52,7 @@
                 android:textColor="@color/colorTextPrimary" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tvMsg"
+                android:id="@+id/tv_msg"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:lines="1"

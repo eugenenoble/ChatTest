@@ -50,9 +50,9 @@ public class PersonalChatActivity extends AppCompatActivity {
     private final static int SELECT_IMAGE = 1;
     private PersonalChatAdapter adapter;
 
-    @BindView(R.id.etMsg)
+    @BindView(R.id.et_msg)
     protected EditText etMsg;
-    @BindView(R.id.rView)
+    @BindView(R.id.r_view)
     RecyclerView recyclerView;
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
@@ -70,15 +70,16 @@ public class PersonalChatActivity extends AppCompatActivity {
         ChatApplication.appComponent().inject(this);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        adapter = new PersonalChatAdapter(messageModels);
 
+        adapter = new PersonalChatAdapter(messageModels);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
         getResponce();
 
     }
 
-    @OnClick(R.id.addBtn)
+    @OnClick(R.id.add_btn)
     public void OnClick() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -131,6 +132,7 @@ public class PersonalChatActivity extends AppCompatActivity {
                 .subscribe(messagesResponse -> {
                     messageModels.addAll(messagesResponse.getMessages());
                     adapter.updateSelfContent(messageModels);
+                    recyclerView.scrollToPosition(adapter.getItemCount() -1);
                     progressBar.setVisibility(View.INVISIBLE);
                 }, throwable -> Log.e(PersonalChatActivity.class.getSimpleName(), throwable.getMessage()));
 

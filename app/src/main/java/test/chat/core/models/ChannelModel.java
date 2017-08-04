@@ -3,11 +3,12 @@ package test.chat.core.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.RealmResults;
 import io.realm.annotations.PrimaryKey;
 
 public class ChannelModel extends RealmObject {
@@ -24,6 +25,15 @@ public class ChannelModel extends RealmObject {
     @SerializedName("unread_messages_count")
     @Expose
     private Integer unreadMessagesCount;
+    private Boolean isDeleted = false;
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
 
     public Integer getId() {
         return id;
@@ -57,4 +67,7 @@ public class ChannelModel extends RealmObject {
         this.unreadMessagesCount = unreadMessagesCount;
     }
 
+    public static RealmResults<ChannelModel> getAllActiveCahnnels(Realm realm){
+        return realm.where(ChannelModel.class).equalTo("isDeleted", false).findAll();
+    }
 }

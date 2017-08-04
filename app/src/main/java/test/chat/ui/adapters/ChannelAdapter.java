@@ -19,6 +19,7 @@ import atownsend.swipeopenhelper.BaseSwipeOpenViewHolder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 import test.chat.R;
@@ -36,10 +37,11 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ChatView
     private ItemInteractionListener listener;
 
     public ChannelAdapter(RealmResults<ChannelModel> resultList) {
-        this.channelModels = resultList;
+        this.channelModels.addAll(resultList);
+
         resultList.addChangeListener(c -> {
             channelModels.clear();
-            channelModels.addAll(c);
+            channelModels.addAll(ChannelModel.getAllActiveCahnnels(Realm.getDefaultInstance()));
             notifyDataSetChanged();
         });
     }
@@ -80,9 +82,9 @@ public class ChannelAdapter extends RecyclerView.Adapter<ChannelAdapter.ChatView
 
         @BindView(R.id.chat_count)
         protected BadgeView chatCount;
-        @BindView(R.id.tvMsg)
+        @BindView(R.id.tv_msg)
         protected AppCompatTextView tvMsg;
-        @BindView(R.id.tvName)
+        @BindView(R.id.tv_name)
         protected AppCompatTextView tvName;
         @BindView(R.id.time)
         protected AppCompatTextView time;

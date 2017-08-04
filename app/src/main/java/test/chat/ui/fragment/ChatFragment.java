@@ -21,7 +21,7 @@ import test.chat.ui.adapters.ChannelAdapter;
 
 
 public class ChatFragment extends Fragment implements ChannelAdapter.ItemInteractionListener {
-    @BindView(R.id.rView)
+    @BindView(R.id.r_view)
     RecyclerView recyclerView;
 
     private ChannelAdapter adapter;
@@ -42,7 +42,7 @@ public class ChatFragment extends Fragment implements ChannelAdapter.ItemInterac
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new ChannelAdapter(realm.where(ChannelModel.class).findAll());
+        adapter = new ChannelAdapter(ChannelModel.getAllActiveCahnnels(realm));
         adapter.setListener(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -66,8 +66,10 @@ public class ChatFragment extends Fragment implements ChannelAdapter.ItemInterac
     public void onItemRemoved(Integer channelModel) {
         realm.executeTransaction(trans -> {
             ChannelModel result = trans.where(ChannelModel.class).equalTo("id", channelModel).findFirst();
-            if (result != null)
-                result.deleteFromRealm();
+            if (result != null) {
+                result.setDeleted(true);
+                realm.copyToRealmOrUpdate(result);
+            }
         });
     }
 
